@@ -6,13 +6,14 @@ const Button = (props) => {
     </button>
   )
 }
-const Display = (props) => {
+
+const StatisticLine = ({ text, value }) => {
   return (
     <div>
-      {props.name} {props.counter}
+      {text} {value}
     </div>
-  )
-}
+  );
+};
 
 const Statistics  = ({good,neutral,bad}) => {
 
@@ -31,12 +32,12 @@ const Statistics  = ({good,neutral,bad}) => {
     return (
       <div>
         <h1>statistics</h1>
-        <Display name="good" counter={good}/>
-        <Display name="neutral" counter={neutral}/>
-        <Display name="bad" counter={bad}/>
-        <div>all {getTotal()}</div>
-        <div> average {getAverage()}</div>
-        <div> positive {getPositive()} %</div>
+        <StatisticLine text="good" value={good} />
+        <StatisticLine text="neutral" value={neutral} />
+        <StatisticLine text="bad" value={bad} />
+        <StatisticLine text="all" value={getTotal()} />
+        <StatisticLine text="average" value={getAverage()} />
+        <StatisticLine text="positive" value={`${getPositive()} %`} />
       </div>
     )
   }
